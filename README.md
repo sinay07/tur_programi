@@ -59,18 +59,6 @@ putenv('DB_NAME=avusturtest');
 putenv('SITE_URL=https://paneldeki-alanadiniz.com');
 ```
 
-## 👤 Varsayılan Giriş Bilgileri
-
-### Admin Paneli
-- **URL:** `http://localhost/avustur/admin/`
-- **Kullanıcı Adı:** `admin`
-- **Şifre:** `admin123`
-
-### Kullanıcı Girişi (Demo)
-Aşağıdaki telefon numaralarından biriyle giriş yapabilirsiniz:
-- `05551234567` (Ahmet Yılmaz)
-- `05559876543` (Mehmet Demir)
-- `05551112233` (Ayşe Kaya)
 
 ## 🗂️ Dosya Yapısı
 
