@@ -10,7 +10,7 @@ Modern ve kullanıcı dostu bir tur şirketi yönetim sistemi. Tamamen PHP taban
 ### Kullanıcı Tarafı
 - ✅ Telefon numarası ile giriş sistemi
 - ✅ Otomatik tur yönlendirme (bugünün turuna göre)
-- ✅ 6 farklı şehir sayfası (Gaziantep, Diyarbakır, Adıyaman, Şanlıurfa, Batman, Mardin)
+- ✅ Birbirinden farklı şehir sayfaslar (Gaziantep, Diyarbakır, Adıyaman, Şanlıurfa, Batman, Mardin vb.)
 - ✅ Her şehir için aktiviteler ve restoranlar
 - ✅ Modern ve responsive tasarım
 - ✅ Kullanıcı dostu arayüz
