@@ -1,0 +1,18 @@
+# Görsellere erişim izni
+<IfModule mod_rewrite.c>
+    RewriteEngine Off
+</IfModule>
+
+# Sadece görsel dosyalarına izin ver
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# PHP dosyalarını engelle
+<FilesMatch "\.php$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+

@@ -1,0 +1,169 @@
+====================================================
+  AVUSTUR - KURULUM KILAVUZU
+====================================================
+
+Bu dosya, Avustur web sitesinin kurulum adımlarını içerir.
+
+====================================================
+1. GEREKSİNİMLER
+====================================================
+
+✓ PHP 7.4 veya üzeri
+✓ MySQL 5.7 veya üzeri (veya MariaDB 10.2+)
+✓ Apache/Nginx web sunucusu
+✓ PDO PHP uzantısı
+✓ mod_rewrite (Apache için)
+
+====================================================
+2. KURULUM ADIMLARI
+====================================================
+
+ADIM 1: DOSYALARI KOPYALAYIN
+----------------------------------------------------
+Tüm proje dosyalarını web sunucunuzun root dizinine kopyalayın.
+Örnek: C:\xampp\htdocs\avustur (Windows)
+       /var/www/html/avustur (Linux)
+
+ADIM 2: VERİTABANINI OLUŞTURUN
+----------------------------------------------------
+a) FastPanel'de `avusturtest` adında veritabanı ve `avusturtest_usr` kullanıcısını `123123Aa` şifresiyle oluşturun.
+
+b) Komut satırından import edin:
+   mysql -u avusturtest_usr -p avusturtest < fastpanel_setup.sql
+
+VEYA phpMyAdmin kullanarak:
+   - phpMyAdmin'e giriş yapın
+   - "Import" sekmesine tıklayın
+   - fastpanel_setup.sql dosyasını seçin
+   - "Go" butonuna tıklayın
+
+ADIM 3: VERİTABANI BAĞLANTISINI YAPILANDIRIN
+----------------------------------------------------
+config.php FastPanel değerleriyle gelir. Gerekirse aşağıdaki ortam değişkenlerini set edin:
+
+DB_HOST=localhost
+DB_USER=avusturtest_usr
+DB_PASS=123123Aa
+DB_NAME=avusturtest
+
+ADIM 4: SITE URL'İNİ AYARLAYIN
+----------------------------------------------------
+SITE_URL otomatik algılanır. Özel domain kullanacaksanız panelde `SITE_URL=https://alanadiniz.com` şeklinde bir ortam değişkeni tanımlayın.
+
+ADIM 5: DOSYA İZİNLERİNİ AYARLAYIN (Linux/Mac)
+----------------------------------------------------
+chmod 755 -R /var/www/html/avustur
+chmod 644 /var/www/html/avustur/config.php
+
+ADIM 6: APACHE MOD_REWRITE'I AKTİFLEŞTİRİN
+----------------------------------------------------
+Apache kullanıyorsanız:
+
+Linux:
+sudo a2enmod rewrite
+sudo service apache2 restart
+
+Windows (XAMPP):
+httpd.conf dosyasında şu satırı bulun ve başındaki # işaretini kaldırın:
+#LoadModule rewrite_module modules/mod_rewrite.so
+
+====================================================
+3. İLK GİRİŞ
+====================================================
+
+Kurulum tamamlandıktan sonra:
+
+ANA SAYFA:
+http://localhost/avustur/
+
+ADMİN PANELİ:
+URL: http://localhost/avustur/admin/
+Kullanıcı Adı: admin
+Şifre: admin123
+
+DEMO KULLANICI GİRİŞLERİ:
+Telefon: 05551234567 (Ahmet Yılmaz)
+Telefon: 05559876543 (Mehmet Demir)
+Telefon: 05551112233 (Ayşe Kaya)
+
+====================================================
+4. ÖNEMLİ GÜVENLİK UYARILARI
+====================================================
+
+✓ Admin şifresini mutlaka değiştirin!
+✓ Production ortamında config.php'de error_reporting'i kapatın:
+  error_reporting(0);
+  ini_set('display_errors', 0);
+
+✓ HTTPS kullanın (SSL sertifikası)
+✓ .htaccess dosyasında HTTPS yönlendirmesini aktifleştirin
+✓ Düzenli yedek alın (veritabanı ve dosyalar)
+
+====================================================
+5. YENİ ADMİN KULLANICI OLUŞTURMA
+====================================================
+
+MySQL'de şu komutu çalıştırın:
+
+INSERT INTO adminler (kullanici_adi, sifre, ad_soyad, email) 
+VALUES ('yeni_admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Yeni Admin', 'admin@email.com');
+
+Not: Yukarıdaki şifre "admin123"'tür. Giriş yaptıktan sonra değiştirin.
+
+====================================================
+6. SORUN GİDERME
+====================================================
+
+PROBLEM: "Veritabanı bağlantı hatası"
+ÇÖZÜM: 
+- config.php'deki veritabanı bilgilerini kontrol edin
+- MySQL'in çalıştığından emin olun
+- Veritabanının oluşturulduğunu kontrol edin
+
+PROBLEM: "404 Not Found" hatası
+ÇÖZÜM:
+- .htaccess dosyasının doğru dizinde olduğundan emin olun
+- mod_rewrite'ın aktif olduğunu kontrol edin
+- RewriteBase değerini kontrol edin
+
+PROBLEM: Sayfalar düzgün görünmüyor
+ÇÖZÜM:
+- assets/css/style.css dosyasının var olduğunu kontrol edin
+- Tarayıcı console'unda CSS hatalarını kontrol edin
+- Tarayıcı cache'ini temizleyin (Ctrl+F5)
+
+PROBLEM: Session hataları
+ÇÖZÜM:
+- PHP session'ların aktif olduğunu kontrol edin
+- php.ini'de session.save_path'in yazılabilir olduğundan emin olun
+
+====================================================
+7. YARDIM VE DESTEK
+====================================================
+
+Daha fazla bilgi için README.md dosyasına bakın.
+
+Sorunlarınız için:
+- Veritabanı log'larını kontrol edin
+- Apache/Nginx error log'larını kontrol edin
+- PHP error log'larını kontrol edin
+
+====================================================
+8. SİSTEM GEREKSİNİMLERİ KONTROLÜ
+====================================================
+
+PHP versiyonunu kontrol etmek için:
+php -v
+
+PHP uzantılarını kontrol etmek için:
+php -m
+
+MySQL versiyonunu kontrol etmek için:
+mysql --version
+
+====================================================
+
+Kurulum tamamlandı! İyi çalışmalar dileriz.
+
+====================================================
+

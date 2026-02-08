@@ -1,0 +1,161 @@
+====================================================
+  PROJE NASIL ÇALIŞTIRILIR?
+====================================================
+
+Projenizi çalıştırmak için aşağıdaki adımları izleyin:
+
+====================================================
+SEÇENEK 1: XAMPP İLE ÇALIŞTIRMA (ÖNERİLEN - EN KOLAY)
+====================================================
+
+ADIM 1: XAMPP'i İndirin ve Kurun
+----------------------------------------------------
+1. https://www.apachefriends.org/tr/index.html adresine gidin
+2. Windows için XAMPP'i indirin (PHP 7.4 veya üzeri)
+3. Kurulumu yapın (varsayılan ayarlar yeterli)
+4. Kurulum dizini: C:\xampp
+
+ADIM 2: Projeyi XAMPP'e Kopyalayın
+----------------------------------------------------
+Bu projeyi şu dizine kopyalayın:
+C:\xampp\htdocs\avustur
+
+Veya mevcut konumda bırakıp XAMPP'te virtual host ayarlayın.
+
+ADIM 3: XAMPP'i Başlatın
+----------------------------------------------------
+1. XAMPP Control Panel'i açın
+2. "Apache" ve "MySQL" servislerini başlatın (Start butonlarına tıklayın)
+3. Her ikisi de yeşil olmalı
+
+ADIM 4: Veritabanını Oluşturun
+----------------------------------------------------
+1. Tarayıcınızda şu adresi açın: http://localhost/phpmyadmin
+2. Üst menüden "Import" sekmesine tıklayın
+3. fastpanel_setup.sql dosyasını seçin
+4. "Go" veya "Tamam" butonuna tıklayın
+
+Konsoldan çalıştırmak isterseniz:
+mysql -u avusturtest_usr -p avusturtest < fastpanel_setup.sql
+
+ADIM 5: config.php'yi Kontrol Edin
+----------------------------------------------------
+config.php dosyası FastPanel varsayılanlarıyla çalışır. Yerel geliştirme yapıyorsanız aşağıdaki ortam değişkenlerini ayarlayarak root kullanıcısını tercih edebilirsiniz:
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=
+DB_NAME=avusturtest
+SITE_URL=http://localhost/avustur
+
+ADIM 6: Siteyi Açın
+----------------------------------------------------
+Tarayıcınızda şu adresleri açın:
+
+Ana Sayfa:
+http://localhost/avustur/
+
+Admin Panel:
+http://localhost/avustur/admin/
+Kullanıcı: admin
+Şifre: admin123
+
+Kullanıcı Girişi:
+Telefon: 05551234567
+
+====================================================
+SEÇENEK 2: LARAGON İLE ÇALIŞTIRMA (HIZLI)
+====================================================
+
+ADIM 1: Laragon'u İndirin
+----------------------------------------------------
+1. https://laragon.org/download/ adresine gidin
+2. Laragon Full'u indirin (PHP, MySQL dahil)
+3. Kurulumu yapın
+
+ADIM 2: Projeyi Ekleyin
+----------------------------------------------------
+1. Laragon'u başlatın
+2. Sağ tıklayın > Quick app > Boş dizine puan
+3. Proje klasörünüzü seçin
+
+ADIM 3: Start All
+----------------------------------------------------
+Laragon'da "Start All" butonuna tıklayın
+
+ADIM 4: Veritabanı ve Ayarlar
+----------------------------------------------------
+XAMPP ile aynı adımları izleyin (phpMyAdmin kullanın)
+
+====================================================
+SEÇENEK 3: WAMP SERVER İLE ÇALIŞTIRMA
+====================================================
+
+1. https://www.wampserver.com/en/ adresine gidin
+2. WampServer'ı indirin ve kurun
+3. XAMPP ile aynı adımları izleyin
+4. Proje: C:\wamp64\www\avustur
+
+====================================================
+HIZLI BAŞLANGIÇ - XAMPP İLE
+====================================================
+
+1. XAMPP'i indirin: https://www.apachefriends.org
+2. Kurun ve başlatın (Apache + MySQL)
+3. Projeyi C:\xampp\htdocs\avustur dizinine kopyalayın
+4. phpMyAdmin'de fastpanel_setup.sql'i import edin (http://localhost/phpmyadmin)
+5. http://localhost/avustur/ adresini açın
+
+====================================================
+SORUN GİDERME
+====================================================
+
+PROBLEM: "localhost refused to connect"
+ÇÖZÜM: Apache servisinin çalıştığından emin olun
+
+PROBLEM: "Veritabanı bağlantı hatası"
+ÇÖZÜM: 
+- MySQL servisinin çalıştığından emin olun
+- config.php'deki bilgileri kontrol edin
+- Veritabanının oluşturulduğunu kontrol edin
+
+PROBLEM: Port 80 veya 3306 kullanımda
+ÇÖZÜM:
+- Skype varsa kapatın (Port 80 kullanır)
+- Başka MySQL kurulumları varsa kapatın
+- XAMPP'te portları değiştirin
+
+PROBLEM: CSS çalışmıyor
+ÇÖZÜM:
+- assets/css/style.css dosyasının var olduğunu kontrol edin
+- Tarayıcı geliştirici araçlarında (F12) hataları kontrol edin
+
+====================================================
+TEST KULLANICILARI
+====================================================
+
+Admin Panel:
+- URL: http://localhost/avustur/admin/
+- Kullanıcı: admin
+- Şifre: admin123
+
+Kullanıcı Girişi (Telefon numarası ile):
+- 05551234567 (Ahmet Yılmaz)
+- 05559876543 (Mehmet Demir)
+- 05551112233 (Ayşe Kaya)
+
+====================================================
+GÜVENLİK NOTU
+====================================================
+
+İlk girişten sonra mutlaka:
+1. Admin şifresini değiştirin
+2. Güçlü şifreler kullanın
+3. Production'da error_reporting'i kapatın
+
+====================================================
+
+Kolay gelsin! 🚀
+
+====================================================
+

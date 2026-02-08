@@ -1,0 +1,137 @@
+====================================================
+  XAMPP UAC UYARISI ÇÖZÜMÜ
+====================================================
+
+UYARI MESAJI:
+"Because an activated User Account Control (UAC) on your 
+system some functions of XAMPP are possibly restricted..."
+
+====================================================
+ÇÖZÜM 1: FARKLI DİZİNE KURULUM (ÖNERİLEN - EN KOLAY)
+====================================================
+
+1. XAMPP kurulumunu iptal edin
+2. XAMPP setup'ı tekrar çalıştırın
+3. Kurulum dizini sorarken şunu yazın:
+   
+   C:\xampp
+   
+   (C:\Program Files KULLANMAYIN!)
+
+4. Kuruluma devam edin
+5. Sorun çözülecektir!
+
+✅ Avantajları:
+- UAC'yi kapatmanıza gerek yok (güvenli)
+- Tüm özellikler sorunsuz çalışır
+- Hızlı ve kolay
+
+====================================================
+ÇÖZÜM 2: UAC'Yİ GEÇİCİ OLARAK KAPATMA
+====================================================
+
+Eğer mutlaka C:\Program Files'a kurmak istiyorsanız:
+
+Windows 10/11'de UAC'yi Kapatma:
+
+1. Windows tuşuna basın
+2. "UAC" yazın veya "Kullanıcı Hesabı Denetimi Ayarlarını Değiştir" yazın
+3. "Change User Account Control settings" seçeneğine tıklayın
+4. Kaydırıcıyı EN ALTA çekin ("Never notify")
+5. "OK" butonuna tıklayın
+6. Bilgisayarı yeniden başlatın
+
+Kurulum Sonrası:
+- XAMPP kurulumunu yapın
+- Kurulum bittikten sonra UAC'yi TEKRAR AKTİF YAPIN!
+  (Kaydırıcıyı varsayılan seviyeye getirin)
+
+⚠️ Uyarı:
+UAC kapalıyken bilgisayarınız daha az güvenli olur!
+Kurulum bittikten sonra mutlaka tekrar açın!
+
+====================================================
+ÇÖZÜM 3: YÖNETİCİ OLARAK ÇALIŞTIRMA
+====================================================
+
+UAC'yi kapatmadan:
+
+1. XAMPP Control Panel kısayoluna sağ tıklayın
+2. "Run as administrator" / "Yönetici olarak çalıştır" seçin
+3. Her seferinde yönetici olarak çalıştırın
+
+Kalıcı Yapmak İçin:
+1. XAMPP Control Panel kısayoluna sağ tıklayın
+2. "Properties" / "Özellikler"
+3. "Compatibility" / "Uyumluluk" sekmesi
+4. "Run this program as an administrator" kutucuğunu işaretleyin
+5. "OK" / "Tamam"
+
+====================================================
+BENİM TAVSİYEM - EN İYİSİ
+====================================================
+
+XAMPP'i C:\xampp dizinine kurun!
+
+Neden?
+✅ UAC sorunu olmaz
+✅ Güvenlik ayarlarını değiştirmenize gerek yok
+✅ Tüm özellikler sorunsuz çalışır
+✅ Dosya izinleri sorun olmaz
+✅ Daha hızlı ve kolay
+
+Adımlar:
+1. Mevcut kurulumu iptal edin
+2. XAMPP installer'ı tekrar çalıştırın
+3. Dizin seçiminde: C:\xampp yazın
+4. Kurulumu tamamlayın
+5. Hiçbir sorun yaşamazsınız!
+
+====================================================
+KURULUM SONRASI YAPILACAKLAR
+====================================================
+
+1. XAMPP Control Panel'i açın
+2. Apache ve MySQL'i başlatın
+3. Projenizi C:\xampp\htdocs\avustur dizinine kopyalayın
+4. http://localhost/avustur adresini açın
+
+====================================================
+EK BİLGİ
+====================================================
+
+C:\Program Files neden sorunlu?
+- Windows bu dizini koruma altında tutar
+- Yazma izinleri kısıtlıdır
+- UAC her değişiklikte izin ister
+- XAMPP düzgün çalışmayabilir
+
+C:\xampp neden daha iyi?
+- Windows tarafından korunmaz
+- Tam yazma izni vardır
+- UAC sorunu olmaz
+- XAMPP için önerilen dizin
+
+====================================================
+HIZLI ÇÖZÜM
+====================================================
+
+Şu anda ne yapmalısınız?
+
+1. XAMPP kurulumunda "Tamam" butonuna tıklayın
+2. Kuruluma devam edin
+3. Dizin seçerken C:\xampp yazın
+4. Bitirin
+
+Veya:
+
+1. Kurulumu iptal edin
+2. Baştan başlayın
+3. C:\xampp dizinine kurun
+
+====================================================
+
+Kolay gelsin! Başka sorun olursa yazarsın 😊
+
+====================================================
+
